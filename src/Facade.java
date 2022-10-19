@@ -26,10 +26,6 @@ public class Facade {
 
 	}
 
-	public void discussBidding() {
-
-	}
-
 	public void submitBidding() {
 
 	}
