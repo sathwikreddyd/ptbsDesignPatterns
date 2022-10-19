@@ -2,8 +2,10 @@ public class OfferingList {
 
 	private Trading trading;
 
-	private Offering[] offering;
+	private List<Offering> offering;
 
-	private OfferingInterator offeringInterator;
+	public OfferingList() {
+
+	}
 
 }
