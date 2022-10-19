@@ -1,6 +1,6 @@
 public class ProductIterator {
 
-	private Product product;
+	private ClassProductList productList;
 
 	public boolean hasNext() {
 		return false;

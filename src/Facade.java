@@ -6,7 +6,7 @@ public class Facade {
 
 	private int nProductCategory;
 
-	private int theProductList;
+	private ClassProductList theProductList;
 
 	private Person thePerson;
 
@@ -43,7 +43,8 @@ public class Facade {
 	}
 
 	public void createProductList() {
-
+		List<String> strings = Files.readAllLines(Paths.get("inputs/ProductInfo.txt"));
+		this.theProductList = new ClassProductList(stings);
 	}
 
 	public void attachProductToUser() {

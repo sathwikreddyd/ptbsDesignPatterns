@@ -1,9 +1,21 @@
 public class Product {
 
-	private ProductIterator productIterator;
-
 	private Trading trading;
 
-	private ClassProductList classProductList;
+	private int type;
+
+	private String item;
+
+	//private ClassProductList classProductList;
+
+	public Product(String type, String name) {
+		if(type.equals("Meat")) {
+			this.type = 0;
+		}
+		else {
+			this.type = 1;
+		}
+		this.item = name;
+	}
 
 }
