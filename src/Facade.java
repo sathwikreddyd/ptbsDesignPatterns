@@ -10,12 +10,16 @@ public class Facade {
 
 	private Person thePerson;
 
-	public boolean login() {
+	public Facade() {
+		String login = this.login();
+	}
+
+	public String login() {
 		return false;
 	}
 
 	public void addTrading() {
-
+		Trading trading = new Trading(thePerson, new OfferingList());
 	}
 
 	public void viewTrading() {
@@ -53,6 +57,10 @@ public class Facade {
 
 	public void productOperation() {
 
+	}
+
+	public static void main(String[] args) {
+		Facade facade = new Facade();
 	}
 
 }
