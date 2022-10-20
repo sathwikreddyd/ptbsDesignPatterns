@@ -1,6 +1,6 @@
 public interface ProductMenu {
 
-	static Person person;
+	public final Person person = null;
 
 	public abstract void showMenu();
 

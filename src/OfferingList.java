@@ -1,10 +1,16 @@
+import java.util.*;
+
 public class OfferingList {
 
 	private Trading trading;
 
-	private List<Offering> offering;
+	public List<Offering> offering;
 
 	public OfferingList() {
+		
+	}
+
+	public void addOffering(int price) {
 		
 	}
 

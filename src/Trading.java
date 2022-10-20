@@ -8,8 +8,8 @@ public class Trading {
 
 	public Trading(Person person, Product product) {
 		this.person = person;
-		
 		this.product = product;
+		this.offeringList = new OfferingList();
 	}
 
 	public void accept(NodeVisitor visitor) {

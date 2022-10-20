@@ -10,14 +10,14 @@ public class ProductIterator {
 	}
 
 	public boolean hasNext() {
-		if(presentIterator<productList.size()){
+		if(presentIterator < productList.product.size()){
 			return true;
 		}
 		return false;
 	}
 
 	public Product next() {
-		return ProductList.get(this.presentIterator);
+		return productList.product.get(this.presentIterator++);
 	}
 
 	public void moveToHead() {
@@ -25,7 +25,7 @@ public class ProductIterator {
 	}
 
 	public void remove() {
-		productList.remove(this.presentIterator);
+		productList.product.remove(this.presentIterator);
 	}
 
 }

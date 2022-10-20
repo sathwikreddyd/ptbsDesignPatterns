@@ -1,13 +1,23 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.nio.file.*;
+import java.util.*;
+import java.lang.*;
+import java.util.List;
 
 public class Login extends JFrame implements ActionListener {
    private JPanel window;
    private JLabel login_label,empty_label,userName_label, password_label, status_label;
    private JTextField userName_text,password_text;
    private JButton submit;
+
+   //lock object
+   static final Object wait = new Object();
    private int loginStatus;
+
+   private String name;
+   private int type;
    public int LoginWindow() {
       login_label = new JLabel();
       empty_label = new JLabel();
@@ -32,33 +42,63 @@ public class Login extends JFrame implements ActionListener {
       window.add(submit);
       window.add(status_label);
       submit.addActionListener(this);
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       add(window, BorderLayout.CENTER);
       setTitle("Login");
-      setSize(500,500);
+      setSize(500, 500);
       setVisible(true);
       return loginStatus;
    }
 
-   public void sett(){
-      System.out.println(loginStatus);
-   }
-   public static void main(String[] args) {
-      Login k = new Login();
-      System.out.println(k.LoginWindow());
-      k.sett();
+   public void waitTime(){
+      //wait
+      try {
+         synchronized (wait) {
+            wait.wait();
+         }
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
    }
    @Override
    public void actionPerformed(ActionEvent ae) {
       String userName = userName_text.getText();
       String password = password_text.getText();
-      if (userName.trim().equals("admin") && password.trim().equals("admin")) {
-         status_label.setText(" Hello " + userName + "");
-         loginStatus = 15;
-
-      } else {
-         status_label.setText(" Invalid user.. ");
-         loginStatus = 0;
+      int flag=0;
+      try {
+         List<String> buyer = Files.readAllLines(Paths.get("input/BuyerInfo.txt"));
+         for (String a : buyer) {
+            if(a.split(":")[0].equals(userName) && a.split(":")[1].equals(password)) {
+               this.name = userName;
+               this.type = 0;
+               flag=1;
+            }
+         }
+         List<String> seller = Files.readAllLines(Paths.get("input/SellerInfo.txt"));
+         for (String a : seller) {
+            if(a.split(":")[0].equals(userName) && a.split(":")[1].equals(password)) {
+               this.name = userName;
+               this.type = 1;
+               flag=1;
+            }
+         }
       }
+      catch(Exception e) {
+         e.printStackTrace();
+      }
+      if(flag==1) {
+         setVisible(false);
+      }
+      synchronized (wait) {
+         wait.notify();
+      }
+   }
+
+   public String getName() {
+      return this.name;
+   }
+
+   public int getUserType() {
+      return this.type;
    }
 }

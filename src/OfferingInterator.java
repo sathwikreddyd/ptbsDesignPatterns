@@ -10,12 +10,12 @@ public class OfferingInterator {
 	}
 
 	public boolean hasNext() {
-		return this.presentIterator < this.offeringList.size();
+		return this.presentIterator < this.offeringList.offering.size();
 	}
 
 	public Offering next() {
 
-		return this.offeringList.get(this.presentIterator++);
+		return this.offeringList.offering.get(this.presentIterator++);
 	}
 
 	public void moveToHead() {
@@ -23,7 +23,7 @@ public class OfferingInterator {
 	}
 
 	public void remove() {
-		this.offeringList.remove(this.presentIterator);
+		this.offeringList.offering.remove(this.presentIterator);
 	}
 
 }

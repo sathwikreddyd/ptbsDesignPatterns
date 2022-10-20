@@ -16,6 +16,15 @@ public class Product {
 			this.type = 1;
 		}
 		this.item = name;
+		System.out.println("product init");
+	}
+
+	public String getName() {
+		return this.item;
+	}
+
+	public int getType() {
+		return this.type;
 	}
 
 }
