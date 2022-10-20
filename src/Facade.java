@@ -19,13 +19,18 @@ public class Facade {
 	}
 
 	public void addTrading() {
-		Trading trading = new Trading(thePerson, new OfferingList());
+		if(theSelectedProduct) {
+			Trading trading = new Trading(thePerson,theSelectedProduct);
+		}
+		else {
+			System.out.println("no selected product");
+		}
+		
 	}
 
 	public void viewTrading() {
 
 	}
-
 	public void decideBidding() {
 
 	}

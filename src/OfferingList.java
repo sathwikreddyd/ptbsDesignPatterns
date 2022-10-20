@@ -5,7 +5,7 @@ public class OfferingList {
 	private List<Offering> offering;
 
 	public OfferingList() {
-
+		
 	}
 
 }
