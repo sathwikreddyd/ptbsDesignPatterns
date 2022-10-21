@@ -12,7 +12,7 @@ public abstract class Person {
 		this.personType = type;
 	}*/
 
-	public abstract void showMenu(ClassProductList productList);
+	public abstract String showMenu(ClassProductList productList);
 
 	public abstract String getName();
 

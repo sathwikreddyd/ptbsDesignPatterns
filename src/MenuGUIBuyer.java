@@ -5,7 +5,7 @@ import java.util.*;
 import java.lang.*;
 import java.util.List;
 
-class MenuGUI extends JFrame{
+class MenuGUIBuyer extends JFrame{
 
     static final Object wait = new Object();
     public int productType;
@@ -51,7 +51,7 @@ class MenuGUI extends JFrame{
                 for(int i=0;i<products.size();i++) {
                     if(l.get(i).isSelected()) {
                         product = products.get(i);
-                        System.out.println(product+"####");
+                        //System.out.println(product+"####");
                     }
                 }
                 synchronized (wait) {
@@ -84,7 +84,7 @@ class MenuGUI extends JFrame{
 
         jButton.setBounds(120,150,100,50);
         this.add(jButton);
-        this.setTitle("Seller");
+        this.setTitle("Buyer");
         this.setBounds(50,50,1000,300);
         this.setVisible(true);
 
@@ -122,4 +122,5 @@ class MenuGUI extends JFrame{
 
 
 }
+
 

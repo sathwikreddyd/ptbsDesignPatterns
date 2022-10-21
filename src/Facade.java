@@ -40,7 +40,7 @@ public class Facade {
 
 
 	public void addTrading() {
-		Product p = this.selectProduct();
+		String p = this.selectProduct();
 		Trading trading = new Trading(thePerson,p);
 	}
 
@@ -50,26 +50,23 @@ public class Facade {
 			List<String> buyers = Files.readAllLines(Paths.get("input/BuyerInfo.txt"));
 			List<String> sellers = Files.readAllLines(Paths.get("input/SellerInfo.txt"));
 
-			Product selected = this.selectProduct();
+			String selected = this.selectProduct();
 
 			List<String> usersWithTrade = new ArrayList<String>();
 
 			List<String> finalUsers = new ArrayList<String>();
 
-			System.out.println(trades.toString());
-
-			System.out.println(selected.getName());
 
 			if(this.thePerson.personType == 0) {
 				for (String k : trades) {
-					if(k.split(":")[1].equals(selected.getName())) {
+					if(k.length() != 0 && k.split(":")[1].equals(selected)) {
 						usersWithTrade.add(k.split(":")[0]);
 					}
 				}
 
 				for (String h : usersWithTrade) {
 					for (String j : sellers) {
-						if (h.equals(j.split(":")[0])) {
+						if (j.length() != 0 && h.equals(j.split(":")[0])) {
 							finalUsers.add(h);
 						}
 					}
@@ -78,7 +75,7 @@ public class Facade {
 
 			if(this.thePerson.personType == 1) {
 				for (String k : trades) {
-					if(k.split(":")[1].equals(selected.getName())) {
+					if(k.split(":")[1].equals(selected)) {
 						usersWithTrade.add(k.split(":")[0]);
 					}
 				}
@@ -128,8 +125,8 @@ public class Facade {
 	}
 
 
-	public Product selectProduct() {
-		System.out.println("Select Product");
+	public String selectProduct() {
+		/*System.out.println("Select Product");
 		this.createProductList();
 		ProductIterator iter = new ProductIterator(theProductList);
 		int c = 0;
@@ -145,19 +142,20 @@ public class Facade {
 		if(s>0 && s<c+1)
 			return items.get(s-1);
 		System.out.println("Wrong choice");
-		return null;
+		return null;*/
+		return this.showMenu();
 	}
 
 
-	public void showMenu() {
+	public String showMenu() {
 		this.createProductList();
-		this.thePerson.showMenu(this.theProductList);
+		return this.thePerson.showMenu(this.theProductList);
 	}
 
 	public static void main(String[] args) {
 		Facade facade = new Facade();
-		//facade.addTrading();
-		facade.showMenu();
+		facade.addTrading();
+		//facade.showMenu();
 		//facade.viewTrading();
 		exit();
 	}

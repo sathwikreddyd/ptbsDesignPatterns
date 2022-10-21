@@ -6,11 +6,11 @@ public class Trading {
 
 	private Person person;
 
-	private Product product;
+	private String product;
 
 	private OfferingList offeringList;
 
-	public Trading(Person person, Product product) {
+	public Trading(Person person, String product) {
 		this.person = person;
 		this.product = product;
 		this.offeringList = new OfferingList();
@@ -21,7 +21,7 @@ public class Trading {
 		try {
 			FileWriter fw = new FileWriter("input/Trading.txt",true);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(person.getName() + ":" + product.getName()+"\n");
+			bw.write(person.getName() + ":" + product+"\n");
 			bw.close();
 		}
 		catch(Exception e) {
