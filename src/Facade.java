@@ -146,6 +146,10 @@ public class Facade {
 		return this.thePerson.showMenu(this.theProductList);
 	}
 
+	public void accept(NodeVisitor visitor) {
+		visitor.visitFacade(this);
+	}
+
 	public static void main(String[] args) {
 		Facade facade = new Facade();
 		String pro = facade.selectProduct();
