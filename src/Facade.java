@@ -56,6 +56,10 @@ public class Facade {
 
 			List<String> finalUsers = new ArrayList<String>();
 
+			System.out.println(trades.toString());
+
+			System.out.println(selected.getName());
+
 			if(this.thePerson.personType == 0) {
 				for (String k : trades) {
 					if(k.split(":")[1].equals(selected.getName())) {
@@ -65,7 +69,7 @@ public class Facade {
 
 				for (String h : usersWithTrade) {
 					for (String j : sellers) {
-						if (h.equals(j)) {
+						if (h.equals(j.split(":")[0])) {
 							finalUsers.add(h);
 						}
 					}
@@ -81,7 +85,7 @@ public class Facade {
 
 				for (String h : usersWithTrade) {
 					for (String j : buyers) {
-						if (h.equals(j)) {
+						if (h.equals(j.split(":")[0])) {
 							finalUsers.add(h);
 						}
 					}
@@ -123,9 +127,6 @@ public class Facade {
 		}
 	}
 
-	public void attachProductToUser() {
-
-	}
 
 	public Product selectProduct() {
 		System.out.println("Select Product");
@@ -147,9 +148,6 @@ public class Facade {
 		return null;
 	}
 
-	public void productOperation() {
-
-	}
 
 	public void showMenu() {
 		this.createProductList();
@@ -158,8 +156,9 @@ public class Facade {
 
 	public static void main(String[] args) {
 		Facade facade = new Facade();
-		facade.addTrading();
-		facade.showMenu();
+		//facade.addTrading();
+		//facade.showMenu();
+		facade.viewTrading();
 		exit();
 	}
 

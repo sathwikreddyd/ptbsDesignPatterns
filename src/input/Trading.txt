@@ -3,4 +3,6 @@ pepe:Onion
 pepe:Tomato
 tutu:Onion
 mimi:Tomato
-
+mimi:Mutton
+mimi:Tomato
+mimi:Pork
