@@ -29,8 +29,9 @@ public class Trading {
 		}
 	}
 
+	//VISITOR PATTERN
 	public void accept(NodeVisitor visitor) {
-
+		visitor.visitTrading(this);
 	}
 
 }

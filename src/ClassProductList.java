@@ -20,7 +20,9 @@ public class ClassProductList {
 	}
 
 	public void accept(NodeVisitor visitor) {
-
+		for(Product p: product) {
+			visitor.visitProduct(p);
+		}
 	}
 
 }
