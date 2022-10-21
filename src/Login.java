@@ -8,17 +8,18 @@ import java.util.List;
 
 public class Login extends JFrame implements ActionListener {
    private JPanel window;
+
+   public int flag=0;
    private JLabel login_label,empty_label,userName_label, password_label, status_label;
    private JTextField userName_text,password_text;
    private JButton submit;
 
    //lock object
    static final Object wait = new Object();
-   private int loginStatus;
 
    private String name;
    private int type;
-   public int LoginWindow() {
+   public void LoginWindow() {
       login_label = new JLabel();
       empty_label = new JLabel();
       userName_label = new JLabel();
@@ -47,7 +48,7 @@ public class Login extends JFrame implements ActionListener {
       setTitle("Login");
       setSize(500, 500);
       setVisible(true);
-      return loginStatus;
+      //return loginStatus;
    }
 
    public void waitTime(){
@@ -64,7 +65,6 @@ public class Login extends JFrame implements ActionListener {
    public void actionPerformed(ActionEvent ae) {
       String userName = userName_text.getText();
       String password = password_text.getText();
-      int flag=0;
       try {
          List<String> buyer = Files.readAllLines(Paths.get("input/BuyerInfo.txt"));
          for (String a : buyer) {
@@ -86,9 +86,7 @@ public class Login extends JFrame implements ActionListener {
       catch(Exception e) {
          e.printStackTrace();
       }
-      if(flag==1) {
-         setVisible(false);
-      }
+      setVisible(false);
       synchronized (wait) {
          wait.notify();
       }

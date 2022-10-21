@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.nio.file.Files;
+
 public class Trading {
 
 	private Person person;
@@ -10,6 +14,19 @@ public class Trading {
 		this.person = person;
 		this.product = product;
 		this.offeringList = new OfferingList();
+		this.storeTradingInfo();
+	}
+
+	public void storeTradingInfo() {
+		try {
+			FileWriter fw = new FileWriter("input/Trading.txt");
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(person.getName() + ":" + product.getName());
+			bw.close();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void accept(NodeVisitor visitor) {

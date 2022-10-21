@@ -12,7 +12,9 @@ public abstract class Person {
 		this.personType = type;
 	}*/
 
-	public abstract void showMenu();
+	public abstract void showMenu(ClassProductList productList);
+
+	public abstract String getName();
 
 	public void showAddButton() {
 
@@ -23,5 +25,6 @@ public abstract class Person {
 	}
 
 	public abstract ProductMenu createProductMenu();
+
 
 }
