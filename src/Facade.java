@@ -157,8 +157,8 @@ public class Facade {
 	public static void main(String[] args) {
 		Facade facade = new Facade();
 		//facade.addTrading();
-		//facade.showMenu();
-		facade.viewTrading();
+		facade.showMenu();
+		//facade.viewTrading();
 		exit();
 	}
 

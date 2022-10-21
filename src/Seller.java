@@ -15,14 +15,15 @@ public class Seller extends Person {
 		System.out.println("Enter you choice of menu\n1. Meat\n2.Produce\n");
 		Scanner sc = new Scanner(System.in);
 		int c = sc.nextInt();
-		ProductIterator iter = new ProductIterator(productList);
 		if(c==1) {
 			MeatProductMenu m = new MeatProductMenu();
-			m.showMenu(productList);
+			List<String> k = m.showMenu(productList);
+			MenuGUI mg = new MenuGUI(k);
 		}
 		else if(c==2) {
 			ProduceProductMenu p = new ProduceProductMenu();
-			p.showMenu(productList);
+			List<String> k = p.showMenu(productList);
+			MenuGUI mg = new MenuGUI(k);
 		}
 	}
 

@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Buyer extends Person {
@@ -16,24 +17,16 @@ public class Buyer extends Person {
 		System.out.println("Enter you choice of menu\n1. Meat\n2.Produce\n");
 		Scanner sc = new Scanner(System.in);
 		int c = sc.nextInt();
-		ProductIterator iter = new ProductIterator(productList);
 		if(c==1) {
-			while(iter.hasNext()) {
-				Product p = iter.next();
-				if(p.getType() == 0) {
-					System.out.println(p.getName());
-				}
-			}
+			MeatProductMenu m = new MeatProductMenu();
+			List<String> k = m.showMenu(productList);
+			MenuGUI mg = new MenuGUI(k);
 		}
 		else if(c==2) {
-			while(iter.hasNext()) {
-				Product p = iter.next();
-				if(p.getType() == 1) {
-					System.out.println(p.getName());
-				}
-			}
+			ProduceProductMenu p = new ProduceProductMenu();
+			List<String> k = p.showMenu(productList);
+			MenuGUI mg = new MenuGUI(k);
 		}
-
 	}
 
 	public ProductMenu createProductMenu() {
