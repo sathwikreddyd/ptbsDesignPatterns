@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class MeatProductMenu implements ProductMenu {
+	//FACTORY METHOD
 
 	public List<String> showMenu(ClassProductList productList) {
 		List<String> items = new ArrayList<>();
@@ -8,7 +9,7 @@ public class MeatProductMenu implements ProductMenu {
 		while(iter.hasNext()) {
 			Product p = iter.next();
 			if(p.getType() == 0) {
-				System.out.println(p.getName());
+				//System.out.println(p.getName());
 				items.add(p.getName());
 			}
 		}

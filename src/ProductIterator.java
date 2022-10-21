@@ -1,5 +1,7 @@
 public class ProductIterator {
 
+	//ITERATOR PATTERN
+
 	private ClassProductList productList;
 
 	private int presentIterator;

@@ -1,5 +1,7 @@
 public interface NodeVisitor {
 
+	//VISITOR PATTERN
+
 	public abstract void visitProduct(Product product);
 
 	public abstract void visitTrading(Trading trading);

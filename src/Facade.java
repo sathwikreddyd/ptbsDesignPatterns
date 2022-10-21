@@ -8,6 +8,8 @@ import static javafx.application.Platform.exit;
 
 public class Facade {
 
+	//FACADE PATTERN
+
 	private int userType;
 
 	private Product theSelectedProduct;
@@ -41,6 +43,7 @@ public class Facade {
 
 	public void addTrading(String p) {
 		Trading trading = new Trading(thePerson,p);
+		System.out.println(thePerson.getName()+":"+p+" is added to trading menu");
 	}
 
 	public void viewTrading(String p) {
@@ -88,7 +91,9 @@ public class Facade {
 					}
 				}
 			}
-
+			if(finalUsers.size() == 0) {
+				System.out.println("No users to trade");
+			}
 			for (String g : finalUsers) {
 				System.out.println(g);
 			}
@@ -96,17 +101,6 @@ public class Facade {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-
-	}
-	public void decideBidding() {
-
-	}
-
-	public void submitBidding() {
-
-	}
-
-	public void remind() {
 
 	}
 

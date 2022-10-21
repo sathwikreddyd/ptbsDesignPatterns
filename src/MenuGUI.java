@@ -7,6 +7,8 @@ import java.util.List;
 
 class MenuGUI extends JFrame{
 
+    //SELLER BRIDGE PATTERN
+
     public String option;
 
     static final Object wait = new Object();
@@ -120,11 +122,11 @@ class MenuGUI extends JFrame{
         this.add(L1);
 
         JRadioButton addmenu = new JRadioButton("Add to trading menu");
-        addmenu.setBounds(120,30,100,50);
+        addmenu.setBounds(120,30,200,50);
         this.add(addmenu);
 
         JRadioButton listBuyer = new JRadioButton("List all buyers");
-        listBuyer.setBounds(240,30,100,50);
+        listBuyer.setBounds(320,30,200,50);
         this.add(listBuyer);
 
         G1.add(addmenu);

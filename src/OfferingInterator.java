@@ -1,5 +1,7 @@
 public class OfferingInterator {
 
+	//ITERATOR PATTERN
+
 	private OfferingList offeringList;
 
 	private int presentIterator;
