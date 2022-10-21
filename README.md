@@ -18,7 +18,7 @@ A user is logged in
 
 Main UI is generated hiding all functions behing and making simple UI - Facade
 
-based on user title of next UI is decided - Bridge
+based on user, title of next UI window is decided - Bridge
 
 Then user enters the productType - Factory
 
