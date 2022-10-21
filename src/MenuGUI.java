@@ -7,6 +7,8 @@ import java.util.List;
 
 class MenuGUI extends JFrame{
 
+    public String option;
+
     static final Object wait = new Object();
     public int productType;
     public String product;
@@ -51,7 +53,6 @@ class MenuGUI extends JFrame{
                 for(int i=0;i<products.size();i++) {
                     if(l.get(i).isSelected()) {
                         product = products.get(i);
-                        System.out.println(product+"####");
                     }
                 }
                 synchronized (wait) {
@@ -98,6 +99,53 @@ class MenuGUI extends JFrame{
                 }
                 else {
                     productType = 0;
+                }
+                synchronized (wait) {
+                    wait.notify();
+                }
+                setVisible(false);
+            }
+        });
+
+
+    }
+
+    public void MenuGUIForTradingOptions() {
+        this.setLayout(null);
+        jButton = new JButton("Submit");
+        //jButton.setText("Submit");
+        G1 = new ButtonGroup();
+        L1 = new JLabel("Select Option");
+        L1.setBounds(20,30,150,50);
+        this.add(L1);
+
+        JRadioButton addmenu = new JRadioButton("Add to trading menu");
+        addmenu.setBounds(120,30,100,50);
+        this.add(addmenu);
+
+        JRadioButton listBuyer = new JRadioButton("List all buyers");
+        listBuyer.setBounds(240,30,100,50);
+        this.add(listBuyer);
+
+        G1.add(addmenu);
+        G1.add(listBuyer);
+
+        jButton.setBounds(120,150,100,50);
+        this.add(jButton);
+        this.setTitle("Seller Options");
+        this.setBounds(50,50,1000,300);
+        this.setVisible(true);
+
+        jButton.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent e)
+            {
+                // If condition to check if jRadioButton2 is selected.
+                if (addmenu.isSelected()) {
+                    option = "add";
+                }
+                else if(listBuyer.isSelected()){
+                    option = "list";
                 }
                 synchronized (wait) {
                     wait.notify();

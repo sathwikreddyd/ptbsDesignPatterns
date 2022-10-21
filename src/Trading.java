@@ -19,7 +19,7 @@ public class Trading {
 
 	public void storeTradingInfo() {
 		try {
-			FileWriter fw = new FileWriter("input/Trading.txt",true);
+			FileWriter fw = new FileWriter("input/UserProduct.txt",true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(person.getName() + ":" + product+"\n");
 			bw.close();

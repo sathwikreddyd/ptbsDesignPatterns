@@ -25,6 +25,7 @@ public class Buyer extends Person {
 			MenuGUIBuyer mk = new MenuGUIBuyer();
 			mk.MenuGUIforProducts(k);
 			mk.waitTime();
+			return mk.product;
 		}
 		else if(mg.productType==1) {
 			ProduceProductMenu p = new ProduceProductMenu();
@@ -32,8 +33,9 @@ public class Buyer extends Person {
 			MenuGUIBuyer mk = new MenuGUIBuyer();
 			mk.MenuGUIforProducts(k);
 			mk.waitTime();
+			return mk.product;
 		}
-		return mg.product;
+		return "";
 	}
 
 	public ProductMenu createProductMenu() {

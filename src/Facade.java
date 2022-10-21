@@ -39,18 +39,18 @@ public class Facade {
 	}
 
 
-	public void addTrading() {
-		String p = this.selectProduct();
+	public void addTrading(String p) {
 		Trading trading = new Trading(thePerson,p);
 	}
 
-	public void viewTrading() {
+	public void viewTrading(String p) {
 		try {
-			List<String> trades = Files.readAllLines(Paths.get("input/Trading.txt"));
+			List<String> trades = Files.readAllLines(Paths.get("input/UserProduct.txt"));
 			List<String> buyers = Files.readAllLines(Paths.get("input/BuyerInfo.txt"));
 			List<String> sellers = Files.readAllLines(Paths.get("input/SellerInfo.txt"));
 
-			String selected = this.selectProduct();
+			//String selected = this.selectProduct();
+			String selected = p;
 
 			List<String> usersWithTrade = new ArrayList<String>();
 
@@ -114,9 +114,9 @@ public class Facade {
 	public void createProductList() {
 		try {
 			List<String> strings = Files.readAllLines(Paths.get("input/ProductInfo.txt"));
-			System.out.println(strings.toString());
+			//System.out.println(strings.toString());
 			this.theProductList = new ClassProductList(strings);
-			System.out.println(theProductList.toString());
+			//System.out.println(theProductList.toString());
 		}
 		catch(java.io.IOException e){
 			System.out.println("File read failed");
@@ -154,9 +154,26 @@ public class Facade {
 
 	public static void main(String[] args) {
 		Facade facade = new Facade();
-		facade.addTrading();
-		//facade.showMenu();
-		//facade.viewTrading();
+		String pro = facade.selectProduct();
+		String opt;
+		if(facade.thePerson.personType == 0) {
+			MenuGUIBuyer b = new MenuGUIBuyer();
+			b.MenuGUIForTradingOptions();
+			b.waitTime();
+			opt = b.option;
+		}
+		else{
+			MenuGUI b = new MenuGUI();
+			b.MenuGUIForTradingOptions();
+			b.waitTime();
+			opt = b.option;
+		}
+		if(opt.equals("add")) {
+			facade.addTrading(pro);
+		}
+		else if(opt.equals("list")) {
+			facade.viewTrading(pro);
+		}
 		exit();
 	}
 
