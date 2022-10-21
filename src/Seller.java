@@ -17,20 +17,12 @@ public class Seller extends Person {
 		int c = sc.nextInt();
 		ProductIterator iter = new ProductIterator(productList);
 		if(c==1) {
-			while(iter.hasNext()) {
-				Product p = iter.next();
-				if(p.getType() == 0) {
-					System.out.println(p.getName());
-				}
-			}
+			MeatProductMenu m = new MeatProductMenu();
+			m.showMenu(productList);
 		}
 		else if(c==2) {
-			while(iter.hasNext()) {
-				Product p = iter.next();
-				if(p.getType() == 1) {
-					System.out.println(p.getName());
-				}
-			}
+			ProduceProductMenu p = new ProduceProductMenu();
+			p.showMenu(productList);
 		}
 	}
 

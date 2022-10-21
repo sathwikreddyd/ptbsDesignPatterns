@@ -2,7 +2,7 @@ public interface ProductMenu {
 
 	public final Person person = null;
 
-	public abstract void showMenu();
+	public abstract void showMenu(ClassProductList productList);
 
 	public abstract void showAddButton();
 

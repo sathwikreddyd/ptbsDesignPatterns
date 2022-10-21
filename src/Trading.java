@@ -19,9 +19,9 @@ public class Trading {
 
 	public void storeTradingInfo() {
 		try {
-			FileWriter fw = new FileWriter("input/Trading.txt");
+			FileWriter fw = new FileWriter("input/Trading.txt",true);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(person.getName() + ":" + product.getName());
+			bw.write(person.getName() + ":" + product.getName()+"\n");
 			bw.close();
 		}
 		catch(Exception e) {

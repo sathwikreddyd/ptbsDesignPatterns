@@ -4,7 +4,7 @@ public abstract class Person {
 
 	private ProductMenu productMenu;
 
-	protected int personType;
+	public int personType;
 
 	protected String name;
 
@@ -15,6 +15,7 @@ public abstract class Person {
 	public abstract void showMenu(ClassProductList productList);
 
 	public abstract String getName();
+
 
 	public void showAddButton() {
 
