@@ -2,11 +2,15 @@
 
 Implemented Design Patterns:
 
-Facade
-Bridge
-Iterator
-Factory
-Visitor
+1. Facade
+
+2. Bridge
+
+3. Iterator
+
+4. Factory
+
+5. Visitor
 
 The UI is created and function works as follows:
 
